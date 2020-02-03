@@ -15,20 +15,18 @@ export class MapComponent implements OnInit {
      this.initMap();
   }
     initMap() {      
-        const lat = (this.params.snapshot.paramMap.get('lat')) ? this.params.snapshot.paramMap.get('lat') : 41.00650212603;
-        const lng = (this.params.snapshot.paramMap.get('lng')) ? this.params.snapshot.paramMap.get('lng') : 28.8530806151128;
+        const lat = (this.params.snapshot.paramMap.get('lat')) ? this.params.snapshot.paramMap.get('lat') : 46;
+        const lng = (this.params.snapshot.paramMap.get('lng')) ? this.params.snapshot.paramMap.get('lng') : 3.5;
         console.log("ruoute", this.router.url);
         const globalMap = L.map('mapContainer', {
             zoomControl: true,
             maxZoom: 21,
             minZoom: 4
-        }).setView([lat, lng], 13);
+        }).setView([lat, lng], 6);
         globalMap.zoomControl.setPosition('bottomright');
-        const maplayer = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&hl=tr&x={x}&y={y}&z={z}', {
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            maxNativeZoom: 21,
-            zIndex: 0,
-            maxZoom: 21
+        const maplayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(globalMap);
 
         const marker = L.marker(globalMap.getCenter(), {
