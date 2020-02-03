@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import * as L from 'leaflet';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +12,17 @@ export class MarkerService {
   }
 
   makeMarkers(map: L.map): void {
+    
       this.http.get(this.measurements).subscribe((res: any) => {
       for (const c of res.results) {
 
         const lat = c.coordinates["latitude"];
         const lon = c.coordinates["longitude"];
 
-        const marker = L.marker([lon, lat]).addTo(map);
+        const marker = L.marker([lat, lon]);
+        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+        marker.addTo(map);
+        const circle = L.circleMarker([lat, lon]).addTo(map);
       }
     });
   }
