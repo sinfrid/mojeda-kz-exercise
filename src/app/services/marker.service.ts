@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { PopupService } from './popup.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,8 @@ export class MarkerService {
 
   measurements: string = 'https://api.openaq.org/v1/measurements?country=FR';
 
-constructor(private http: HttpClient) { }
+constructor(private http: HttpClient,
+        private popupService: PopupService) { }
 
   makeMarkers(map: L.map): void {
 
@@ -19,10 +21,11 @@ constructor(private http: HttpClient) { }
         const lon = c.coordinates["longitude"];
 
         const circle = L.circleMarker([lat, lon])
-debugger;
-        //circle.bindPopup(this.popupService.makePopup(c));
+
+        circle.bindPopup(this.popupService.makePopup(c));
 
         circle.addTo(map);
+
       }
     });
   }

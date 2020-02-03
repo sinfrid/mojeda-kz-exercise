@@ -10,12 +10,10 @@ export class PopupService {
   constructor() { }
 
   makePopup(data: any): string {
-debugger;
-
-      return 
-      "<div>Capital: ${ data.name }</div>" +
-      "<div>State: ${ data.state }</div>" +
-      "<div>Population: ${ data.population }</div>";
+return `` +
+      `<div>Capital: ${ data.city }</div>` +
+      `<div>State: ${ data.parameter }</div>` +
+      `<div>Population: ${ data.value }</div>`
   }
 
 }
