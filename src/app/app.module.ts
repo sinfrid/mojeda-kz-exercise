@@ -8,6 +8,7 @@ import { MapComponent } from './map/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MarkerService } from './services/marker.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PopupService } from './services/popup.service';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +26,6 @@ const appRoutes: Routes = [
     ), LeafletModule.forRoot()],
   declarations: [AppComponent, MapComponent],
   bootstrap: [AppComponent],
-  providers: [MarkerService]
+  providers: [MarkerService, PopupService]
 })
 export class AppModule { }
