@@ -10,8 +10,8 @@ import { MarkerService } from './services/marker.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PopupService } from './services/popup.service';
 import { CountryPipe } from './pipes/country.pipe';
-import { SearchCountryComponent } from './search/country/search-country/search-country.component';
-import { SearchComponent } from './search/search/search.component';
+import { SearchCountryComponent } from './search/search-country/search-country.component';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes = [
   {
