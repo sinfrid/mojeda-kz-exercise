@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Observable, Subject } from 'rxjs';
-
-import {
-   debounceTime, distinctUntilChanged, switchMap
- } from 'rxjs/operators';
-
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Country } from '../../classes/country';
 import { CountryService } from '../../services/country.service';
 
@@ -17,8 +12,7 @@ import { CountryService } from '../../services/country.service';
 export class SearchCountryComponent implements OnInit {
 
   countries = [];
-  private searchTerms = new Subject<string>();
-  private asd = "";
+
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
@@ -28,11 +22,8 @@ export class SearchCountryComponent implements OnInit {
   }
     getCountries(): void {
         this.countryService.getCountries().subscribe((data: any[])=>{
-      console.log(data);
+
       this.countries = data;
     })  
-
-    /*this.countryService.getCountries()
-    .subscribe(countries => this.countries = countries);*/
   }
 }
