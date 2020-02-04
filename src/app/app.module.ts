@@ -10,6 +10,8 @@ import { MarkerService } from './services/marker.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PopupService } from './services/popup.service';
 import { CountryPipe } from './pipes/country.pipe';
+import { SearchCountryComponent } from './search/country/search-country/search-country.component';
+import { SearchComponent } from './search/search/search.component';
 
 const appRoutes: Routes = [
   {
@@ -25,7 +27,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ), LeafletModule.forRoot()],
-  declarations: [AppComponent, MapComponent, CountryPipe],
+  declarations: [AppComponent, MapComponent, CountryPipe, SearchCountryComponent, SearchComponent],
   bootstrap: [AppComponent],
   providers: [MarkerService, PopupService]
 })
