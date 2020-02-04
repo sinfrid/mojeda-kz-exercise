@@ -1,4 +1,4 @@
-export class Country {
+export interface Country {
 
   code: string;
   count: number;

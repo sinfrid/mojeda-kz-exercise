@@ -9,7 +9,6 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { MarkerService } from './services/marker.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PopupService } from './services/popup.service';
-import { CountryPipe } from './pipes/country.pipe';
 import { SearchCountryComponent } from './search/search-country/search-country.component';
 import { SearchComponent } from './search/search.component';
 
@@ -27,7 +26,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ), LeafletModule.forRoot()],
-  declarations: [AppComponent, MapComponent, CountryPipe, SearchCountryComponent, SearchComponent],
+  declarations: [AppComponent, MapComponent, 
+  SearchCountryComponent, SearchComponent],
   bootstrap: [AppComponent],
   providers: [MarkerService, PopupService]
 })

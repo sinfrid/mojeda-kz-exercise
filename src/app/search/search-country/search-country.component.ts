@@ -15,16 +15,24 @@ import { CountryService } from '../../services/country.service';
   styleUrls: ['./search-country.component.css']
 })
 export class SearchCountryComponent implements OnInit {
-  countries: Country[];
-  private searchTerms = new Subject<string>();
 
+  countries = [];
+  private searchTerms = new Subject<string>();
+  private asd = "";
   constructor(private countryService: CountryService) {}
 
   ngOnInit() {
+
    this.getCountries();
+
   }
     getCountries(): void {
-    this.countryService.getHeroes()
-    .subscribe(countries => this.countries = countries);
+        this.countryService.getCountries().subscribe((data: any[])=>{
+      console.log(data);
+      this.countries = data;
+    })  
+
+    /*this.countryService.getCountries()
+    .subscribe(countries => this.countries = countries);*/
   }
 }

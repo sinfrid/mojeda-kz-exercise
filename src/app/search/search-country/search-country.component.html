@@ -1,5 +1,10 @@
-<ul class="countries">
-  <li *ngFor="let country of countries">
-      <span class="badge">{{country.name}}</span> {{country.id}}
-  </li>
-</ul>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li *ngFor="let result of countries.results"><a  class="dropdown-item" href="#">{{result.name}}</a></li>
+  </ul>
+</div>
